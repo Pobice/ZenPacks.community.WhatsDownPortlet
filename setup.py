@@ -3,7 +3,7 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.community.WhatsDownPortlet"
-VERSION = "0.2"
+VERSION = "0.3"
 AUTHOR = "Robert Naylor <zenpack@pobice.co.uk>"
 LICENSE = ""
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.community']

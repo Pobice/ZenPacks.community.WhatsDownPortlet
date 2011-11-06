@@ -2,6 +2,11 @@ import Globals
 import os.path
 import re
 
+#Allow wav files in skins
+from Products.CMFCore.DirectoryView import registerFileExtension
+from Products.CMFCore.FSFile import FSFile
+registerFileExtension('wav', FSFile)
+
 skinsDir = os.path.join(os.path.dirname(__file__), 'skins')
 from Products.CMFCore.DirectoryView import registerDirectory
 if os.path.isdir(skinsDir):
