@@ -18,10 +18,9 @@ Please note due to a bug <http://dev.zenoss.org/trac/ticket/7832> in zenoss port
 ![Whats Down Portlet - Options](https://github.com/Pobice/ZenPacks.community.WhatsDownPortlet/raw/master/docs/options.png)
 
 ##Versions:
-0.2 Original release
+0.2 Original release [Download][]
 ###Tagged Releases:
-[0.2]: https://github.com/Pobice/ZenPacks.community.WhatsDownPortlet/tree/WhatsDown0.2
+0.2: <https://github.com/Pobice/ZenPacks.community.WhatsDownPortlet/tree/WhatsDown0.2>
 
-[Zenoss]: <http://www.zenoss.com/>
-[Latest Package]: <https://github.com/downloads/Pobice/ZenPacks.community.WhatsDownPortlet/ZenPacks.community.WhatsDownPortlet-0.2-py2.6.egg.zip>
+[Download]: <https://github.com/downloads/Pobice/ZenPacks.community.WhatsDownPortlet/ZenPacks.community.WhatsDownPortlet-0.2-py2.6.egg.zip>
 
