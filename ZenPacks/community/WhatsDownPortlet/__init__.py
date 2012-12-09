@@ -66,7 +66,7 @@ def getJSONDownDevices(self, path='', prodstate=''):
             devices = deviceClass.getSubDevices()
             for d in devices:
                 if d.getPingStatus()>0 and d.productionState>=int(prodstate) :
-                	row = { 'Device': d.getPrettyLink(), 'Failed Pings': d.getPingStatusString() }
+			row = { 'Device': d.getPrettyLink(), 'Failed Pings': d.getPingStatusNumber() }
                 	response['data'].append(row)   
             # Serialize the response and return it
             return json.dumps(response)
