@@ -10,6 +10,9 @@ if os.path.isdir(skinsDir):
 from Products.ZenModel.ZenossSecurity import ZEN_COMMON
 from Products.ZenUtils.Utils import zenPath
 from Products.ZenModel.ZenPack import ZenPackBase
+#for finding device and events
+from Products.Zuul import getFacade
+#from Products.ZenUtils.ZenScriptBase import ZenScriptBase
 
 class ZenPack(ZenPackBase):
 		def _registerWhatsDownPortlet(self, app):
@@ -62,12 +65,22 @@ def getJSONDownDevices(self, path='', prodstate=''):
             except KeyError:
                 return json.dumps(response)
 
-            # Get the list of devices
-            devices = deviceClass.getSubDevices()
-            for d in devices:
-                if d.getPingStatus()>0 and d.productionState>=int(prodstate) :
-			row = { 'Device': d.getPrettyLink(), 'Failed Pings': d.getPingStatusNumber() }
-                	response['data'].append(row)   
+            zep_facade = getFacade('zep')
+            #dmd = ZenScriptBase(connect=True, noopts=True).dmd
+            issues = zep_facade.getDevicePingIssues()
+            for x in issues:
+            	#[0]=devicename,[2]=failed ping count
+            	#d=dmd.Devices.findDevice(x[0])
+            	#if d.getPingStatus()>0 and d.productionState>=int(prodstate) :			
+            	row = { 'Device': x[0], 'Failed Pings': x[2] }
+            	response['data'].append(row)			
+	   
+            # Get the list of devices - old way
+            #devices = deviceClass.getSubDevices()
+            #for d in devices:
+            #    if d.getPingStatus()>0 and d.productionState>=int(prodstate) :
+	    	#		row = { 'Device': d.getPrettyLink(), 'Failed Pings': d.getPingStatusNumber() }
+            #    	response['data'].append(row)   
             # Serialize the response and return it
             return json.dumps(response)
 
